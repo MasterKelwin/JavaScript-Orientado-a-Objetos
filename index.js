@@ -11,13 +11,13 @@ class contaCorrente{
     sacar(valor){
         if(this._saldo >= valor && valor >= 0){
             this._saldo -= valor;
+            return valor; //return executa break.
         }
     }
     
     depositar(valor){
-        if(valor > 0){
+        if(valor <= 0) return;
         this._saldo += valor;
-        }
     }
 }
 
@@ -30,7 +30,7 @@ contaCorrenteKelwin._saldo = 0;
 contaCorrenteKelwin.agencia = 0712;
 
 contaCorrenteKelwin.depositar(150);
-contaCorrenteKelwin.sacar(50);
+valorSacadoKelwin = contaCorrenteKelwin.sacar(50);
 // contaCorrenteKelwin.depositar(-2);
 // contaCorrenteKelwin.sacar(-2);
 
@@ -46,6 +46,7 @@ contaCorrenteDara.depositar(200);
 contaCorrenteDara.sacar(150);
 
 //console.log(cliente1,cliente2);
+console.log("valor sacado: ",valorSacadoKelwin)
 console.log(contaCorrenteKelwin._saldo,contaCorrenteDara._saldo);
 
 
