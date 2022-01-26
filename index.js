@@ -1,52 +1,31 @@
-class cliente{ //molde
-    nome; //atributos do cliente
-    cpf;
-    rg;
-}
+import {Cliente} from "./Cliente.js"
+import {ContaCorrente} from "./ContaCorrente.js"
 
-class contaCorrente{
-    _saldo;
-    agencia;
-
-    sacar(valor){
-        if(this._saldo >= valor && valor >= 0){
-            this._saldo -= valor;
-            return valor; //return executa break.
-        }
-    }
-    
-    depositar(valor){
-        if(valor <= 0) return;
-        this._saldo += valor;
-    }
-}
-
-const cliente1 = new cliente();  //objeto
+const cliente1 = new Cliente();  //objeto
 cliente1.nome = "Kelwin";
 cliente1.cpf = 11122233344;
 cliente1.rg = 123456789; 
-const contaCorrenteKelwin = new contaCorrente();
-contaCorrenteKelwin._saldo = 0;
-contaCorrenteKelwin.agencia = 0712;
+const ContaCorrenteKelwin = new ContaCorrente();
+ContaCorrenteKelwin._saldo = 0;
+ContaCorrenteKelwin.agencia = "0712";
+let valorSacadoKelwin;
 
-contaCorrenteKelwin.depositar(150);
-valorSacadoKelwin = contaCorrenteKelwin.sacar(50);
-// contaCorrenteKelwin.depositar(-2);
-// contaCorrenteKelwin.sacar(-2);
+ContaCorrenteKelwin.depositar(150);
+valorSacadoKelwin = ContaCorrenteKelwin.sacar(50);
+// ContaCorrenteKelwin.depositar(-2);
+// ContaCorrenteKelwin.sacar(-2);
 
-const cliente2 = new cliente(); //objeto
+const cliente2 = new Cliente(); //objeto
 cliente2.nome = "Dara";
 cliente2.cpf = 99988877766;
 cliente2.rg = 987654321;
-const contaCorrenteDara = new contaCorrente();
-contaCorrenteDara._saldo = 0;
-contaCorrenteDara.agencia = 0712; 
+const ContaCorrenteDara = new ContaCorrente();
+ContaCorrenteDara._saldo = 0;
+ContaCorrenteDara.agencia = "0712"; 
 
-contaCorrenteDara.depositar(200);
-contaCorrenteDara.sacar(150);
+ContaCorrenteDara.depositar(200);
+ContaCorrenteDara.sacar(150);
 
 //console.log(cliente1,cliente2);
 console.log("valor sacado: ",valorSacadoKelwin)
-console.log(contaCorrenteKelwin._saldo,contaCorrenteDara._saldo);
-
-
+console.log(ContaCorrenteKelwin._saldo,ContaCorrenteDara._saldo);
