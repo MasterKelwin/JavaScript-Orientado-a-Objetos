@@ -18,6 +18,6 @@ valorSacadoDara = ContaCorrenteDara.sacar(150);
 ContaCorrenteKelwin.transferir(25,ContaCorrenteDara);
 
 console.log(ContaCorrente.numeroDeContas);
-//console.log("valor sacado: ",valorSacadoKelwin)
-//console.log(ContaCorrenteKelwin._saldo,ContaCorrenteDara._saldo);
-//console.log(ContaCorrenteKelwin)
+console.log("valor sacado: ",valorSacadoKelwin)
+console.log(ContaCorrenteKelwin._saldo,ContaCorrenteDara._saldo);
+console.log(ContaCorrenteKelwin)
