@@ -28,7 +28,7 @@ ContaCorrenteDara.sacar(150);
 
 ContaCorrenteKelwin.transferir(25,ContaCorrenteDara);
 
-console.log(ContaCorrenteDara);
+console.log(ContaCorrenteDara.saldo);
 //console.log("valor sacado: ",valorSacadoKelwin)
 //console.log(ContaCorrenteKelwin._saldo,ContaCorrenteDara._saldo);
 //console.log(ContaCorrenteKelwin)

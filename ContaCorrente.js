@@ -10,6 +10,10 @@ export class ContaCorrente{
         }
     }
 
+    get cliente(){
+        return this._cliente;
+    }
+
     _saldo = 0;
     sacar(valor){
         if(this._saldo >= valor && valor >= 0){
@@ -26,5 +30,9 @@ export class ContaCorrente{
     transferir(valor, conta){
         const valorTransferido = this.sacar(valor);
         conta.depositar(valorTransferido);
+    }
+
+    get saldo(){
+        return this._saldo;
     }
 }
