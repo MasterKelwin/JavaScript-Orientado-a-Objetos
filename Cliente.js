@@ -1,7 +1,4 @@
 export class Cliente{ //molde
-    nome; //atributos do cliente
-    _cpf;
-    _rg;
 
     get cpf(){
         return this._cpf;

@@ -2,8 +2,6 @@ import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente{
     static numeroDeContas = 0;
-    agencia;
-    _cliente;
 
     set cliente(novoValor){
         if(novoValor instanceof Cliente){ 
@@ -18,11 +16,10 @@ export class ContaCorrente{
     constructor(agencia, cliente){
         this.agencia = agencia;
         this.cliente = cliente;
+        this._saldo = 0;
         ContaCorrente.numeroDeContas += 1;
     }
     
-    _saldo = 0;
-
     sacar(valor){
         if(this._saldo >= valor && valor >= 0){
             this._saldo -= valor;
