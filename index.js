@@ -7,26 +7,35 @@ import {Diretor} from "./Funcionarios/Diretor.js"
 import { Funcionario } from "./Funcionarios/Funcionario.js";
 import {SistemaAutenticacao} from "./SistemaAutenticacao.js"
 
-const cliente1 = new Cliente("Kelwin", 11122233344, 123456789);  //objeto
+const cliente1 = new Cliente("Kelwin", 11122233344, 123456789, "k12");  //objeto
 const ContaCorrenteKelwin = new ContaCorrente(0, cliente1, "0712");
 const contaPoupancaKelwin = new ContaPoupanca(500, cliente1, "0712");
 let valorSacado;
 
-const cliente2 = new Cliente("Dara", 99988877766, 987654321); //objeto
+const cliente2 = new Cliente("Dara", 99988877766, 987654321, "d12"); //objeto
 const ContaCorrenteDara = new ContaCorrente(0, cliente2, "0712");
 
 const diretorRengoku = new Diretor("Rengoku", 10000, 1212121212);
 diretorRengoku.cadastrarSenha("078555")
-//const estaLogado = SistemaAutenticacao.login(gerente, "078555");
+const diretorEstaLogado = SistemaAutenticacao.login(diretorRengoku, "078555");
 
 const gerenteUzui = new Gerente("Uzui", 5000, 3434343434);
 gerenteUzui.cadastrarSenha("111")
-const estaLogado = SistemaAutenticacao.login(gerenteUzui, "111");
+const gerenteEstaLogado = SistemaAutenticacao.login(gerenteUzui, "1121");
 
-if(estaLogado == true){
+const clienteEstaLogado = SistemaAutenticacao.login(cliente1, "k12");
+
+if(gerenteEstaLogado == true){
     console.log("Você acessou o Kelwin Bank")
     }else{console.log("Acesso Recusado")}
 
+if(diretorEstaLogado == true){
+    console.log("Bem vindo Sr. Rengoku")
+    }else{console.log("Acesso Recusado")}
+
+if(clienteEstaLogado == true){
+    console.log("Você acessou o Kelwin Bank")
+    }else{console.log("Acesso Recusado")}
 
 // ContaCorrenteKelwin.depositar(150);
 // valorSacado = ContaCorrenteKelwin.sacar(50);

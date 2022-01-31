@@ -5,4 +5,5 @@ export class Diretor extends Funcionario{
         super(nome, salario, cpf);
         this._bonificacao = 2;
     }
+    
 }

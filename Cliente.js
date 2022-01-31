@@ -1,5 +1,11 @@
 export class Cliente{ //molde
-
+    constructor(nome, cpf, rg, senha){
+        this.nome = nome;
+        this._cpf = cpf;
+        this._rg = rg;
+        this._senha = senha;
+    }
+    
     get cpf(){
         return this._cpf;
     }
@@ -8,9 +14,10 @@ export class Cliente{ //molde
         return this._rg;
     }
 
-    constructor(nome, cpf, rg){
-        this.nome = nome;
-        this._cpf = cpf;
-        this._rg = rg;
+    autenticar(senha){
+        return senha == this._senha;
     }
+    
+
+
 }

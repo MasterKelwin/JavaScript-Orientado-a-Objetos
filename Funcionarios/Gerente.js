@@ -5,4 +5,5 @@ export class Gerente extends Funcionario{
         super(nome, salario, cpf);
         this._bonificacao = 1.1;
     }
+    
 }
