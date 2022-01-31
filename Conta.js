@@ -6,7 +6,12 @@ export class Conta{
         this._cliente = cliente;
         this._agencia = agencia;
         this._saldo = 0 + saldoInicial;
+
         Conta.numeroDeContas += 1;
+
+        if(this.constructor == Conta){
+            throw new Error("Você não deveria instanciar um objeto do tipo conta")
+        }
     }
 
     set cliente(novoValor){
@@ -26,12 +31,17 @@ export class Conta{
     //taxa = 1.1 * valor;
 
     sacar(valor){
-        let taxa = 1;
+        throw new Error("Você não referenciou o saque no novo tipo de conta instanciado, o método não de Sacar não deve ser abstrato.");
+    }
+
+    _sacar(valor, taxa){
         const valorSacado = taxa * valor;
         if(this._saldo >= valorSacado){
             this._saldo -= valorSacado;
             return valorSacado;
         }
+
+        return 0;
     }
     
     depositar(valor){
