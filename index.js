@@ -6,6 +6,35 @@ import {Gerente} from "./Funcionarios/Gerente.js"
 import {Diretor} from "./Funcionarios/Diretor.js"
 import { Funcionario } from "./Funcionarios/Funcionario.js";
 import {SistemaAutenticacao} from "./SistemaAutenticacao.js"
+import { Negociacao } from '../models/negociacao.js';
+import { Negociacoes } from '../models/negociacoes.js';
+export class NegociacaoController {
+    constructor() {
+        this.negociacoes = new Negociacoes();
+        this.inputData = document.querySelector('#data');
+        this.inputQuantidade = document.querySelector('#quantidade');
+        this.inputValor = document.querySelector('#valor');
+    }
+    adiciona() {
+        const negociacao = this.criaNegociacao();
+        this.negociacoes.adiciona(negociacao);
+        console.log(this.negociacoes.lista());
+        this.limpaFormulario();
+    }
+    criaNegociacao() {
+        const exp = /-/g;
+        const date = new Date(this.inputData.value.replace(exp, ','));
+        const quantidade = parseInt(this.inputQuantidade.value);
+        const valor = parseFloat(this.inputValor.value);
+        return new Negociacao(date, quantidade, valor);
+    }
+    limpaFormulario() {
+        this.inputData.value = '';
+        this.inputQuantidade.value = '';
+        this.inputValor.value = '';
+        this.inputData.focus();
+    }
+}
 
 const cliente1 = new Cliente("Kelwin", 11122233344, 123456789, "k12");  //objeto
 const ContaCorrenteKelwin = new ContaCorrente(0, cliente1, "0712");
@@ -36,6 +65,8 @@ if(diretorEstaLogado == true){
 if(clienteEstaLogado == true){
     console.log("Você acessou o Kelwin Bank")
     }else{console.log("Acesso Recusado")}
+
+
 
 // ContaCorrenteKelwin.depositar(150);
 // valorSacado = ContaCorrenteKelwin.sacar(50);
